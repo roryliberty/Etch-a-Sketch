@@ -5,11 +5,19 @@
 
 main {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+}
+
+#button-container {
+    padding-left: 20%;
+    padding-bottom: 10px;
 }
 
 #grid-container {
     display: grid;
+    padding-left: 20%;
+    padding-right: 20%;
     grid-template-rows: repeat(var(--grid-rows), auto);
     grid-template-columns: repeat(var(--grid-cols), auto);
 }

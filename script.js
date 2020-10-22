@@ -1,5 +1,6 @@
 const gridContainer = document.getElementById("grid-container");
 
+
 function makeGrid(rows, columns) {
     for (i = 0; i < (rows * columns); i++) {
         gridContainer.style.setProperty("--grid-rows", rows)
@@ -12,9 +13,17 @@ function makeGrid(rows, columns) {
     }
 }
 
+
+
 makeGrid(16, 16);
 
-document.getElementsByClassName("grid-cell").addEventListener("mouseover", function fillIn() {
-    document.getElementsByClassName("grid-cell").style.color = "black";
-});
 
+const boxes = gridContainer.querySelectorAll(".grid-cell");
+
+boxes.forEach((div) => {
+    div.addEventListener("mouseover", (e) => {
+        console.log(e);
+        let boxNumber = e.target.id;
+        div.style.backgroundColor = "black";
+    });
+});

@@ -5,9 +5,16 @@ function makeGrid(rows, columns) {
         gridContainer.style.setProperty("--grid-rows", rows)
         gridContainer.style.setProperty("--grid-cols", columns);
         let cell = document.createElement("div");
-        gridContainer.appendChild(cell).className = "sixteen-cells";
+        cell.id = (i + 1);
+        cell.innerHTML = cell.id;
+        gridContainer.appendChild(cell).className = "grid-cell";
+        
     }
 }
 
 makeGrid(16, 16);
+
+document.getElementsByClassName("grid-cell").addEventListener("mouseover", function fillIn() {
+    document.getElementsByClassName("grid-cell").style.color = "black";
+});
 

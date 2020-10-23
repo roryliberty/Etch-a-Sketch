@@ -17,8 +17,8 @@ function makeGrid(rows) {
         // Add the new div element to the gridConainer element and give it a class
         gridContainer.appendChild(newDiv).className = "grid-cell";
         //
-        gridContainer.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
-        gridContainer.style.gridTemplateColumns = `repeat(${rows}, 1fr)`;
+        gridContainer.style.gridTemplateRows = `repeat(${rows}, minmax(0, 1fr))`;
+        gridContainer.style.gridTemplateColumns = `repeat(${rows}, minmax(0, 1fr))`;
     }
 
 //        newDiv.id = (i + 1);

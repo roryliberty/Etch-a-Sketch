@@ -1,6 +1,11 @@
-:root {
+/*:root {
     --grid-cols: 1;
     --grid-rows: 1;
+}*/
+
+html {
+    display: flex;
+    justify-content: center;
 }
 
 main {
@@ -10,19 +15,20 @@ main {
 }
 
 #button-container {
-    padding-left: 20%;
     padding-bottom: 10px;
 }
 
-#grid-container {
+/*#grid-container {
     display: grid;
-    padding-left: 20%;
-    padding-right: 20%;
-    grid-template-rows: repeat(var(--grid-rows), auto);
-    grid-template-columns: repeat(var(--grid-cols), auto);
-}
+    border-style: solid;
+    width: 500px;
+    height: 500px;
+    grid-template-rows: repeat(var(--grid-rows), 1fr);
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
+}*/
 
 .grid-cell {
+    display: flex;
     border-style: solid;
     padding: 5px;
     background-color: white;

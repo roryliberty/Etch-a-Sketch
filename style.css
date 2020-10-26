@@ -15,7 +15,10 @@ main {
 }
 
 #button-container {
+    display: flex;
+    justify-content: space-evenly;
     padding-bottom: 10px;
+    padding-top: 10px;
 }
 
 /*#grid-container {
@@ -29,7 +32,7 @@ main {
 
 .grid-cell {
     display: flex;
-    border-style: solid;
+    /*border-style: solid;*/
     padding: 5px;
     background-color: white;
 }

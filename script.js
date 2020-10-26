@@ -1,13 +1,12 @@
 const gridContainer = document.getElementById("grid-container");
 const startOverButton = document.getElementById("start-over");
+const colorButton = document.getElementById("color-button");
 
 // Setting the style of the grid-container div
 gridContainer.style.display = "grid";
 gridContainer.style.borderStyle = "solid";
 gridContainer.style.width = "500px";
 gridContainer.style.height = "500px";
-
-console.log(gridContainer);
 
 function makeGrid(rows) {
     for (i = 0; i < (rows * rows); i++) {
@@ -16,32 +15,21 @@ function makeGrid(rows) {
 
         // Add the new div element to the gridConainer element and give it a class
         gridContainer.appendChild(newDiv).className = "grid-cell";
-        //
+        
+        // Building the grid
         gridContainer.style.gridTemplateRows = `repeat(${rows}, minmax(0, 1fr))`;
         gridContainer.style.gridTemplateColumns = `repeat(${rows}, minmax(0, 1fr))`;
     }
 
-//        newDiv.id = (i + 1);
-//        newDiv.innerHTML = cell.id;
-  
+    // Grabbing the divs in grid-container
     const boxes = gridContainer.querySelectorAll(".grid-cell");
 
+    // When the cursor moves over the divs, make them black
     for (let box of boxes) {
         box.addEventListener("mouseover", (e) => {
-//            console.log(e);
-//            let boxNumber = e.target.id;
             box.style.backgroundColor = "black";
         });
     }
-
- //       boxes.forEach((div) => {
- //           div.addEventListener("mouseover", (e) => {
- //               console.log(e);
- //               let boxNumber = e.target.id;
- //               div.style.backgroundColor = "black";
- //           });
- //       });
-    
 }
 
 makeGrid(16);
@@ -55,4 +43,8 @@ function clearGrid() {
     }
 
     makeGrid(numRowsCols);
+}
+
+function colorGrid() {
+    clearGrid();
 }

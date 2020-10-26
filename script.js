@@ -1,12 +1,21 @@
 const gridContainer = document.getElementById("grid-container");
-const startOverButton = document.getElementById("start-over");
-const colorButton = document.getElementById("color-button");
+const buttonChoice = document.querySelectorAll("button");
+let drawColor = "black-button";
 
 // Setting the style of the grid-container div
 gridContainer.style.display = "grid";
 gridContainer.style.borderStyle = "solid";
 gridContainer.style.width = "500px";
 gridContainer.style.height = "500px";
+
+// Event listeners on buttons
+for (let button of buttonChoice) {
+    button.addEventListener("click", (e) => {
+        drawColor = button.id;
+
+        clearGrid();
+    });
+}
 
 function makeGrid(rows) {
     for (i = 0; i < (rows * rows); i++) {
@@ -24,15 +33,22 @@ function makeGrid(rows) {
     // Grabbing the divs in grid-container
     const boxes = gridContainer.querySelectorAll(".grid-cell");
 
-    // When the cursor moves over the divs, make them black
     for (let box of boxes) {
         box.addEventListener("mouseover", (e) => {
-            box.style.backgroundColor = "black";
+            switch (drawColor) {
+                case "black-button":
+                    // When the cursor moves over the divs, make them black
+                    box.style.backgroundColor = "black";
+                    break;
+                case "color-button":
+                    // Each div will be a random color if the color button is clicked
+                    let randColor = Math.floor(Math.random() * 16777215).toString(16);
+                    box.style.backgroundColor = "#" + randColor;
+                    break;
+            }
         });
     }
 }
-
-makeGrid(16);
 
 function clearGrid() {
     gridContainer.innerHTML = "";
@@ -45,6 +61,4 @@ function clearGrid() {
     makeGrid(numRowsCols);
 }
 
-function colorGrid() {
-    clearGrid();
-}
+makeGrid(16);

@@ -49,9 +49,12 @@ function makeGrid(rows) {
                 case "shade-button":
                     // Each div will get a little darker each time the mouse passes over
                     box.style.backgroundColor = "black";
-                    opacity = Number(box.style.opacity);
-                    newOpacity = (opacity + 0.1);
-                    box.style.opacity = newOpacity;
+                    box.style.opacity = +box.style.opacity + 0.1 // My original code is commented out below and
+                                                                 // does work correctly.
+                                                                 // Chris showed me this unary.
+//                    opacity = Number(box.style.opacity);
+//                    newOpacity = (opacity + 0.1);
+//                    box.style.opacity = newOpacity;
                     break;
             }
         });

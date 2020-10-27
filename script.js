@@ -33,6 +33,7 @@ function makeGrid(rows) {
     // Grabbing the divs in grid-container
     const boxes = gridContainer.querySelectorAll(".grid-cell");
 
+    // This changes what happens based on which button is clicked
     for (let box of boxes) {
         box.addEventListener("mouseover", (e) => {
             switch (drawColor) {
@@ -41,9 +42,16 @@ function makeGrid(rows) {
                     box.style.backgroundColor = "black";
                     break;
                 case "color-button":
-                    // Each div will be a random color if the color button is clicked
+                    // Each div will be a random color
                     let randColor = Math.floor(Math.random() * 16777215).toString(16);
                     box.style.backgroundColor = "#" + randColor;
+                    break;
+                case "shade-button":
+                    // Each div will get a little darker each time the mouse passes over
+                    box.style.backgroundColor = "black";
+                    opacity = Number(box.style.opacity);
+                    newOpacity = (opacity + 0.1);
+                    box.style.opacity = newOpacity;
                     break;
             }
         });

@@ -17,8 +17,6 @@ main {
 }
 
 .grid-cell {
-    display: flex;
-    /*border-style: solid;*/
     padding: 5px;
     background-color: white;
 }
